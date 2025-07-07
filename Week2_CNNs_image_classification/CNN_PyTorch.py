@@ -66,3 +66,19 @@ with torch.no_grad():
         correct += (predicted == labels).sum().item()
 
 print(f"Test Accuracy: {100 * correct / total:.2f}%")
+
+
+
+'''
+
+Layer	  Output Shape
+Input	  [N, 1, 28, 28]
+Conv1	  [N, 32, 26, 26]
+MaxPool1  [N, 32, 13, 13]
+Conv2	  [N, 64, 11, 11]
+MaxPool2  [N, 64, 5, 5]
+Flatten	  [N, 1600]
+fc1	      [N, 128]
+fc2	      [N, 10]
+
+'''
