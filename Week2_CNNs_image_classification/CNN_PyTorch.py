@@ -28,7 +28,7 @@ class CNN(nn.Module):
 
     def forward(self, x):
         x = torch.relu(self.conv1(x))  # [64,1,28,28] → [64,32,26,26]
-        x = self.pool(x)               ''' [64,32,26,26] → [64,32,13,13] ,Output size = (Input_size - Kernel_size + 2*Padding)/Stride + 1 (28 - 3 + 0)/1 + 1 = 26 ,Output_size = Input_size / Kernel_size 26 / 2 = 13'''
+        x = self.pool(x)               #[64,32,26,26] → [64,32,13,13] ,Output size = (Input_size - Kernel_size + 2*Padding)/Stride + 1 (28 - 3 + 0)/1 + 1 = 26 ,Output_size = Input_size / Kernel_size 26 / 2 = 13
         x = torch.relu(self.conv2(x))  # [64,32,13,13] → [64,64,11,11]
         x = self.pool(x)               # [64,64,11,11] → [64,64,5,5]
         x = x.view(-1, 64 * 5 * 5)     # Flatten to [64,1600]
